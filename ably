@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ably JavaScript Getting Started</title>
+</head>
+<body>
+    <h1>Ably JavaScript Getting Started</h1>
+    <div id="output"></div>
+
+    <script src="https://cdn.ably.com/lib/ably.min-2.js"></script>
+    <script>
+        const output = document.getElementById('output');
+
+        function log(message) {
+            output.innerHTML += '<p>' + message + '</p>';
+            console.log(message);
+        }
+
+        async function getStarted() {
+            const realtimeClient = new Ably.Realtime({
+                key: 'ofYSlg.hVCUgw:Gz8NSOyUCJJuQae3E5sWts-dbWcVBbmLJ6WykJe7b70',
+                clientId: 'my-first-client'
+            });
+
+            await realtimeClient.connection.once('connected');
+            log('Made my first connection!');
+        }
+
+        getStarted();
+    </script>
+</body>
+</html>
