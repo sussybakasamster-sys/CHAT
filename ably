@@ -28,7 +28,12 @@
             log('Made my first connection!');
         }
 
-        getStarted();
+        getStarted(const channel = realtimeClient.channels.get('my-first-channel');
+
+await channel.subscribe((message) => {
+    log(`Received message: ${message.data}`);
+});
+);
     </script>
 </body>
 </html>
